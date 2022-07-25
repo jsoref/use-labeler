@@ -17,6 +17,10 @@ jobs:
       pull-requests: none
 
     steps:
+    - shell: bash
+      run: |
+        (curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/users/jsoref -I || true) 2>&1 |grep Scope || true
+
     - uses: jsoref/labeler@main
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
