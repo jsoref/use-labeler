@@ -19,7 +19,7 @@ jobs:
     steps:
     - shell: bash
       run: |
-        (curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/users/jsoref -I || true) 2>&1 |grep Scope || true
+        (curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/authorizations -I || true) 2>&1
 
     - uses: jsoref/labeler@main
       with:
